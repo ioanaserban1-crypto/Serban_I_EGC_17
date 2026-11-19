@@ -154,15 +154,12 @@ public class Game : GameWindow
 
         // --- Obiectul selectat: mouse-ul (secțiunea 9) -------------------------------
 
-        // TODO (T3): la clic stânga, obiectul selectat se mută în punctul din lume aflat sub cursor
-        //            (folosiți ScreenToWorld; Depth nu se schimbă)
         // T3: clic stânga mută obiectul selectat sub cursor (Depth rămâne neschimbat)
         if (MouseState.IsButtonPressed(MouseButton.Left))
         {
             sel.Transform.Position = ScreenToWorld(MouseState.Position);
         }
 
-        // TODO (T4, facultativ): clic dreapta = pivot; tasta P ținută = rotație în jurul pivotului
         // T4: clic dreapta alege pivotul
         if (MouseState.IsButtonPressed(MouseButton.Right))
         {
@@ -186,7 +183,6 @@ public class Game : GameWindow
             sel.Transform.Rotation += angle;
         }
 
-        // T5: o rotație completă la 4 secunde = 90° pe secundă
         _orbitAngle = (_orbitAngle + 90.0f * dt) % 360.0f;
 
         // --- Camera: tastatura și rotița (secțiunea 6.2) -----------------------------
